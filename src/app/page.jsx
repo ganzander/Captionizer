@@ -1,7 +1,7 @@
 import "./globals.css";
-import DemoSection from "./components/demoSection";
-import PageHeaders from "./components/pageHeaders";
-import UploadForm from "./components/uploadForm";
+import DemoSection from "../components/demoSection";
+import PageHeaders from "../components/pageHeaders";
+import UploadForm from "../components/uploadForm";
 
 export default function Home() {
   return (

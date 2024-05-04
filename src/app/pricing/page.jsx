@@ -1,4 +1,4 @@
-import PageHeaders from "../components/pageHeaders";
+import PageHeaders from "../../components/pageHeaders";
 
 export default function Pricing() {
   return (
