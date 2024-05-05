@@ -1,5 +1,5 @@
-import SparkleIcon from "@/components/sparkleIcon";
-import { transcriptionItemsToSrt } from "@/libs/awsTranscriptionHelper";
+import SparkleIcon from "./sparkleIcon";
+import { transcriptionItemsToSrt } from "../libs/awsTranscriptionHelper";
 import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { toBlobURL, fetchFile } from "@ffmpeg/util";
 import { useEffect, useState, useRef } from "react";

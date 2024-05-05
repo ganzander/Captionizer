@@ -1,7 +1,7 @@
 "use client";
-import ResultVideo from "@/components/ResultVideo";
-import TranscriptionEditor from "@/components/TranscriptionEditor";
-import { clearTranscriptionItems } from "@/libs/awsTranscriptionHelper";
+import ResultVideo from "../../components/ResultVideo"
+import TranscriptionEditor from "../../components/TranscriptionEditor";
+import { clearTranscriptionItems } from "../../libs/awsTranscriptionHelper";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
