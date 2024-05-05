@@ -1,4 +1,4 @@
-import TranscriptionItem from "@/components/TranscriptionItem";
+import TranscriptionItem from "./TranscriptionItem";
 
 export default function TranscriptionEditor({
   awsTranscriptionItems,

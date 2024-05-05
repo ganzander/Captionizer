@@ -1,6 +1,6 @@
 import "./globals.css";
-import SparkleIcon from "../components/sparkleIcon";
-import Link from "next/link";
+import Navbar from "../components/navbar";
+import { Providers } from "../components/providers";
 
 export const metadata = {
   title: "Next.js",
@@ -9,21 +9,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+
     <html lang="en">
       <body className="bg-gradient-to-b from-[#9747FF] to-[#7D4BFF] min-h-screen text-white">
-        <main className="p-4 max-w-2xl mx-auto">
-          <header className="flex justify-between my-8">
-            <Link href="/" className="flex gap-1">
-              <SparkleIcon />
-              <span>EpicCaptions</span>
-            </Link>
-            <nav className="flex gap-6 text-white/80">
-              <Link href="/">Home</Link>
-              <Link href="/pricing">Pricing</Link>
-              <Link href="/mailto:contact@epiccaptions.com">Contact</Link>
-            </nav>
-          </header>
-          {children}
+        <main className="">
+          <Providers>
+            <Navbar />
+            {children}
+          </Providers>
         </main>
       </body>
     </html>
