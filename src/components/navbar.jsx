@@ -1,48 +1,68 @@
-"use client"
-
-import {signIn, signOut, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import SparkleIcon from './sparkleIcon';
+"use client";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import SparkleIcon from "./sparkleIcon";
 import Link from "next/link";
-import React, { useEffect } from 'react'
-import { getServerSession } from 'next-auth';
-import { Auth } from './auth';
+import React, { useEffect, useState } from "react";
+import { getServerSession } from "next-auth";
+import { Auth } from "./auth";
 
-function Navbar () {
+function Navbar() {
+  const { data: session, status, image } = useSession();
+  const router = useRouter();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    const {data : session , status, image} = useSession()
-    const router = useRouter()
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
-    // let res
-    // const ses =async()=>{
-    //     res =  await getServerSession(Auth)
-    // }
-    // ses()
-
-    return (
-        <>
-            <div className="flex justify-around py-4 border-b-2 border-white w-[100vw]">
-                <Link href="/" className="flex gap-1 justify-center items-center">
-                    <SparkleIcon />
-                    <span>EpicCaptions</span>
+  return (
+    <div className="flex  justify-around border-b-2 border-white w-full">
+      <Link href="/" className="flex gap-1 justify-center items-center">
+        <SparkleIcon />
+        <span>EpicCaptions</span>
+      </Link>
+      <nav className="flex gap-6 text-white/80 justify-center items-center">
+        <Link href="/">Home</Link>
+        <Link href="/pricing">Pricing</Link>
+        {status == "authenticated" ? (
+          <div className="relative inline-block text-left">
+            <img
+              className=" rounded-full"
+              src={session.user.image}
+              width={40}
+              alt=""
+              onClick={toggleDropdown}
+            />
+            {isDropdownOpen ? (
+              <div className="origin-top-right absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                <Link
+                  // href="/profile"
+                  href="/"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                  role="menuitem"
+                >
+                  Your Videos
                 </Link>
-                <nav className="flex gap-6 text-white/80 justify-center items-center">
-                    <Link href="/">Home</Link>
-                    <Link href="/pricing">Pricing</Link>
-                    {status == 'authenticated'?
-                    <div className='flex justify-center items-center gap-4'>
-                    <button className='' onClick={async()=> await signOut() } >Logout</button>
-                    welcome {session.user.name}
-                    <img className=' rounded-full' src={session.user.image} width={40} alt="" />
-                    </div>
-                    :
-                    // <button className='' onClick={async()=> await signIn('github')} >Signin</button>
-                    <button className='' onClick={async()=> router.push("/api/auth/signin")} >Signin</button>
-                    }
-                </nav>
-            </div>
-        </>
-    )
+                <button
+                  className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                  role="menuitem"
+                  onClick={async () => await signOut()}
+                >
+                  Logout
+                </button>
+              </div>
+            ) : null}
+            {/* </div> */}
+          </div>
+        ) : (
+          <button onClick={async () => router.push("/api/auth/signin")}>
+            Signin
+          </button>
+        )}
+      </nav>
+    </div>
+  );
 }
 
-export default Navbar
+export default Navbar;

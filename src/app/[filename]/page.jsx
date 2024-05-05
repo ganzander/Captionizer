@@ -1,5 +1,5 @@
 "use client";
-import ResultVideo from "../../components/ResultVideo"
+import ResultVideo from "../../components/ResultVideo";
 import TranscriptionEditor from "../../components/TranscriptionEditor";
 import { clearTranscriptionItems } from "../../libs/awsTranscriptionHelper";
 import axios from "axios";
@@ -42,6 +42,13 @@ export default function FilePage({ params }) {
     return <div>Fetching information...</div>;
   }
 
+  async function postVideo(e) {
+    e.preventDefault();
+    const videoUrl =
+      "https://ganesh-epic-captions.s3.amazonaws.com/" + filename;
+    await axios.post("/api/setVideos", { videoUrl });
+  }
+
   return (
     <div>
       <div className="grid sm:grid-cols-2 gap-8 sm:gap-16">
@@ -58,6 +65,12 @@ export default function FilePage({ params }) {
             filename={filename}
             transcriptionItems={awsTranscriptionItems}
           />
+          <button
+            className="bg-green-600 mx-5 mt-5 py-2 px-6 rounded-full inline-flex gap-2 border-2 border-purple-700/50 cursor-pointer"
+            onClick={postVideo}
+          >
+            Save this video for future
+          </button>
         </div>
       </div>
     </div>
