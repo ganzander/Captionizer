@@ -17,7 +17,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex  justify-around border-b-2 border-white w-full">
+    <div className="flex bg-gradient-to-b from-[#a764ff] to-[#5e2fd5] justify-around border-b-2 border-white w-full py-4">
       <Link href="/" className="flex gap-1 justify-center items-center">
         <SparkleIcon />
         <span>EpicCaptions</span>
@@ -28,10 +28,10 @@ function Navbar() {
         {status == "authenticated" ? (
           <div className="relative inline-block text-left">
             <img
-              className=" rounded-full"
+              className=" rounded-full cursor-pointer"
               src={session.user.image}
               width={40}
-              alt=""
+              alt="image"
               onClick={toggleDropdown}
             />
             {isDropdownOpen ? (

@@ -35,25 +35,28 @@ export default function FilePage({ params }) {
   }
 
   if (isTranscribing) {
-    return <div>Transcribing your video...</div>;
+    return <div className="flex flex-col justify-center items-center ">
+       <div className="text-center py-10 text-2xl">Transcribing your video...</div>
+       {/* <img className="justify-cnter" width={44} src="/giphy.gif" alt="" /> */}
+    </div>;
   }
 
   if (isFetchingInfo) {
-    return <div>Fetching information...</div>;
+    return <div className="text-center py-10 text-2xl">Fetching information...</div>;
   }
 
   return (
     <div>
-      <div className="grid sm:grid-cols-2 gap-8 sm:gap-16">
+      <div className="grid sm:grid-cols-2 gap-8 sm:gap-16 p-10">
         <div className="">
-          <h2 className="text-2xl mb-4 text-white/60">Transcription</h2>
+          <h2 className="text-2xl m-4 text-center text-white">Transcription</h2>
           <TranscriptionEditor
             awsTranscriptionItems={awsTranscriptionItems}
             setAwsTranscriptionItems={setAwsTranscriptionItems}
           />
         </div>
-        <div>
-          <h2 className="text-2xl mb-4 text-white/60">Result</h2>
+        <div className="w-full">
+          <h2 className="text-2xl text-center m-4 text-white">Result</h2>
           <ResultVideo
             filename={filename}
             transcriptionItems={awsTranscriptionItems}

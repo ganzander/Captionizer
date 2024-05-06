@@ -33,7 +33,7 @@ export default function UploadForm() {
           </div>
         </div>
       )}
-      <label className="flex gap-2 bg-green-600 py-2 px-6 rounded-full border-2 border-purple-700/50 cursor-pointer">
+      <label className="flex gap-2 bg-white text-purple-500 py-2 px-6 rounded-full border-2 border-purple-700/50 cursor-pointer">
         <UploadIcon />
         <span>Choose files</span>
         <input onChange={upLoad} type="file" className="hidden" />
