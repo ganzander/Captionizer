@@ -10,8 +10,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-b from-[#9747FF] to-[#7D4BFF] min-h-screen text-white">
-        <main className="p-4 max-w-2xl mx-auto">
+      <body className="bg-gradient-to-b from-[#9747FF] to-[#5e2fd5] min-h-screen w-full text-white justify-center">
+        <main>
           <Providers>
             <Navbar />
             {children}
@@ -21,3 +21,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+
