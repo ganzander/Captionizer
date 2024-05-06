@@ -80,8 +80,28 @@ export default function ResultVideo({ filename, transcriptionItems }) {
   };
 
   return (
-    <>
-      <div className="mb-4">
+    <div className="w-full">
+
+      <div className="color-settings flex justify-evenly items-center pb-10 pt-5">
+        <div className="flex">
+          <div className="pr-3">Primary color</div>
+          <input
+            type="color"
+            value={primaryColor}
+            onChange={(ev) => setPrimaryColor(ev.target.value)}
+          />
+        </div>
+        <div className="flex">
+          <div className="pr-3">Outline color</div>
+          <input
+            type="color"
+            value={outlineColor}
+            onChange={(ev) => setOutlineColor(ev.target.value)}
+          />
+        </div>
+      </div>
+
+      <div className="pb-10 caption-btn text-center">
         <button
           onClick={transcode}
           className="bg-green-600 py-2 px-6 rounded-full inline-flex gap-2 border-2 border-purple-700/50 cursor-pointer"
@@ -90,22 +110,8 @@ export default function ResultVideo({ filename, transcriptionItems }) {
           <span>Apply captions</span>
         </button>
       </div>
-      <div>
-        primary color:
-        <input
-          type="color"
-          value={primaryColor}
-          onChange={(ev) => setPrimaryColor(ev.target.value)}
-        />
-        <br />
-        outline color:
-        <input
-          type="color"
-          value={outlineColor}
-          onChange={(ev) => setOutlineColor(ev.target.value)}
-        />
-      </div>
-      <div className="rounded-xl overflow-hidden relative">
+
+      <div className="rounded-xl overflow-hidden relative justify-center final-vid">
         {progress && progress < 1 && (
           <div className="absolute inset-0 bg-black/80 flex items-center">
             <div className="w-full text-center">
@@ -122,8 +128,8 @@ export default function ResultVideo({ filename, transcriptionItems }) {
             </div>
           </div>
         )}
-        <video data-video={0} ref={videoRef} controls></video>
+        <video className=" h-full" data-video={0} ref={videoRef} controls></video>
       </div>
-    </>
+    </div>
   );
 }
