@@ -81,7 +81,6 @@ export default function ResultVideo({ filename, transcriptionItems }) {
 
   return (
     <div className="w-full">
-
       <div className="color-settings flex justify-evenly items-center pb-10 pt-5">
         <div className="flex">
           <div className="pr-3">Primary color</div>
@@ -111,7 +110,7 @@ export default function ResultVideo({ filename, transcriptionItems }) {
         </button>
       </div>
 
-      <div className="rounded-xl overflow-hidden relative justify-center final-vid">
+      <div className="rounded-xl overflow-hidden flex relative justify-center final-vid">
         {progress && progress < 1 && (
           <div className="absolute inset-0 bg-black/80 flex items-center">
             <div className="w-full text-center">
@@ -128,7 +127,12 @@ export default function ResultVideo({ filename, transcriptionItems }) {
             </div>
           </div>
         )}
-        <video className=" h-full" data-video={0} ref={videoRef} controls></video>
+        <video
+          className=" h-full"
+          data-video={0}
+          ref={videoRef}
+          controls
+        ></video>
       </div>
     </div>
   );
