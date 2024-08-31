@@ -20,7 +20,7 @@ function Navbar() {
     <div className="flex bg-gradient-to-b from-[#a764ff] to-[#5e2fd5] justify-around border-b-2 border-white w-full py-4">
       <Link href="/" className="flex gap-1 justify-center items-center">
         <SparkleIcon />
-        <span>EpicCaptions</span>
+        <span>Captionizer</span>
       </Link>
       <nav className="flex gap-6 text-white/80 justify-center items-center">
         <Link href="/">Home</Link>
