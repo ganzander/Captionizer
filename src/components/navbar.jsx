@@ -17,8 +17,11 @@ function Navbar() {
   };
 
   return (
-    <div className="flex bg-gradient-to-b from-[#a764ff] to-[#5e2fd5] justify-around border-b-2 border-white w-full py-4">
-      <Link href="/" className="flex gap-1 justify-center items-center">
+    <div className="flex bg-black justify-around border-white w-full py-4 h-[10vh]">
+      <Link
+        href="/"
+        className="flex gap-1 justify-center items-center text-white"
+      >
         <SparkleIcon />
         <span>Captionizer</span>
       </Link>

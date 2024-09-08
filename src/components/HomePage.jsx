@@ -1,14 +1,12 @@
 "use client";
-import "./globals.css";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Spotlight } from "../components/ui/spotlight";
+import { Spotlight } from "./ui/spotlight";
 import axios from "axios";
 
-export default function page() {
+export default function HomePage() {
   const [isUploading, setIsUploading] = useState(false);
   const router = useRouter();
-
   async function upLoad(e) {
     e.preventDefault();
     const files = e.target.files;
