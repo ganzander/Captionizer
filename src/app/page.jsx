@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Spotlight } from "../components/ui/spotlight";
 import axios from "axios";
 
-export default function page() {
+export default function Page() {
   const [isUploading, setIsUploading] = useState(false);
   const router = useRouter();
 
