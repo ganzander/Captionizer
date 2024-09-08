@@ -5,12 +5,13 @@ import { toBlobURL, fetchFile } from "@ffmpeg/util";
 import { useEffect, useState, useRef } from "react";
 import roboto from "./../fonts/Roboto-Regular.ttf";
 import robotoBold from "./../fonts/Roboto-Bold.ttf";
+import { Button } from "./ui/moving-border";
 
 export default function ResultVideo({ filename, transcriptionItems }) {
   const videoUrl = "https://ganesh-epic-captions.s3.amazonaws.com/" + filename;
   const [loaded, setLoaded] = useState(false);
   const [primaryColor, setPrimaryColor] = useState("#FFFFFF");
-  const [outlineColor, setOutlineColor] = useState("#000000");
+  const [outlineColor, setOutlineColor] = useState("#002680");
   const [progress, setProgress] = useState(1);
   const ffmpegRef = useRef(new FFmpeg());
   const videoRef = useRef(null);
@@ -83,7 +84,7 @@ export default function ResultVideo({ filename, transcriptionItems }) {
     <div className="w-full">
       <div className="color-settings flex justify-evenly items-center pb-10 pt-5">
         <div className="flex">
-          <div className="pr-3">Primary color</div>
+          <div className="pr-3 text-white">Primary color</div>
           <input
             type="color"
             value={primaryColor}
@@ -91,7 +92,7 @@ export default function ResultVideo({ filename, transcriptionItems }) {
           />
         </div>
         <div className="flex">
-          <div className="pr-3">Outline color</div>
+          <div className="pr-3 text-white">Outline color</div>
           <input
             type="color"
             value={outlineColor}
@@ -101,22 +102,23 @@ export default function ResultVideo({ filename, transcriptionItems }) {
       </div>
 
       <div className="pb-10 caption-btn text-center">
-        <button
+        <Button
           onClick={transcode}
-          className="bg-green-600 py-2 px-6 rounded-full inline-flex gap-2 border-2 border-purple-700/50 cursor-pointer"
+          borderRadius="1.75rem"
+          className="cursor-pointer gap-2 bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
         >
           <SparkleIcon />
           <span>Apply captions</span>
-        </button>
+        </Button>
       </div>
 
       <div className="rounded-xl overflow-hidden flex relative justify-center final-vid">
         {progress && progress < 1 && (
           <div className="absolute inset-0 bg-black/80 flex items-center">
             <div className="w-full text-center">
-              <div className="bg-bg-gradient-from/50 mx-8 rounded-lg overflow-hidden relative">
+              <div className="bg-gradient-to-r from-white to-gray-500 mx-8 rounded-lg overflow-hidden relative">
                 <div
-                  className="bg-bg-gradient-from h-8"
+                  className="bg-gradient-to-r from-white to-gray-500 h-8"
                   style={{ width: progress * 100 + "%" }}
                 >
                   <h3 className="text-white text-xl absolute inset-0 py-1">
