@@ -19,25 +19,26 @@ export default function Page() {
         file,
       });
       setIsUploading(false);
-      console.log(res.data);
       const newName = res.data.newName;
       router.push("/" + newName);
     }
   }
 
   return (
-    <div className="items-center flex justify-center h-[90vh] w-full md:items-center md:justify-evenly bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div className="items-center flex flex-col lg:flex-row justify-center min-h-[90vh] w-full md:items-center md:justify-evenly bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
-      <div className="intro-top">
+      <div className="w-full lg:w-1/2">
         <section className="text-center mt-24 mb-8">
-          <h1 className="text-5xl text-white capitalize font-semibold">
+          <h1 className="text-4xl md:text-5xl text-white capitalize font-semibold">
             Add <span className=" text-yellow-400 ">SUBTITLES</span> <br />
             to your videos.
           </h1>
-          <h2 className="text-white/75 pt-10">with just one CLICK!</h2>
+          <h2 className="text-lg md:text-2xl text-white/75 pt-10">
+            with just one CLICK!
+          </h2>
         </section>
 
         <div className="flex justify-center">
@@ -72,7 +73,8 @@ export default function Page() {
           </>
         </div>
       </div>
-      <section className="flex justify-center gap-10 m-8 sm:mt-12 items-center">
+
+      <section className="w-full lg:w-1/2 flex justify-center gap-10 m-8 sm:mt-12 items-center">
         <div className="hidden sm:block bg-gray-800/50 w-[240px] rounded-xl overflow-hidden">
           <video
             src="https://dawid-epic-captions.s3.us-east-1.amazonaws.com/without-captions.mp4"
@@ -80,7 +82,7 @@ export default function Page() {
             muted
             autoPlay
             loop
-          ></video>
+          />
         </div>
         <div className="hidden sm:block text-white">
           <svg
@@ -105,7 +107,7 @@ export default function Page() {
             muted
             autoPlay
             loop
-          ></video>
+          />
         </div>
       </section>
     </div>

@@ -12,10 +12,12 @@ export default function Page() {
       <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0">
         <div className="intro-top">
           <section className="text-center mb-8">
-            <h1 className="text-5xl text-white capitalize font-semibold">
+            <h1 className="text-3xl sm:text-5xl text-white capitalize font-semibold">
               Check Out Our Pricing
             </h1>
-            <h2 className="text-white/75 pt-5">Our Pricing Is Very Good</h2>
+            <h2 className="text-white/75 text-lg sm:text-2xl pt-5">
+              Our Pricing Is Very Good
+            </h2>
           </section>
         </div>
 
