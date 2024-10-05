@@ -77,13 +77,14 @@ export default function Page() {
       <section className="w-full lg:w-1/2 flex justify-center gap-10 m-8 sm:mt-12 items-center">
         <div className="hidden sm:block bg-gray-800/50 w-[240px] rounded-xl overflow-hidden">
           <video
-            src="https://dawid-epic-captions.s3.us-east-1.amazonaws.com/without-captions.mp4"
+            src="/Video without captions.mp4"
             preload="true"
             muted
             autoPlay
             loop
           />
         </div>
+
         <div className="hidden sm:block text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -100,9 +101,10 @@ export default function Page() {
             />
           </svg>
         </div>
+
         <div className="bg-gray-800/50 w-[240px] rounded-xl overflow-hidden">
           <video
-            src="https://dawid-epic-captions.s3.us-east-1.amazonaws.com/with-captions.mp4"
+            src="/Video with captions.mp4"
             preload="true"
             muted
             autoPlay
